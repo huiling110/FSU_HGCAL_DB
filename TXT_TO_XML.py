@@ -19,7 +19,7 @@ XML_tablename=args.t
 
 PRESERIES=True
 
-FSUDB_OUTPUT_DIR=os.environ['FSUDB_OUTPUT_DIR']
+FSUDB_OUTPUT_DIR=os.environ['FSUDB_OUTPUT_DIR'] #xml output dir
 
 PRESERIES_IV_SUMMARY_DIR = os.environ['PRESERIES_IV_SUMMARY_DIR']
 OLD_PRESERIES_IV_SUMMARY_DIR = os.environ['OLD_PRESERIES_IV_SUMMARY_DIR']
@@ -28,19 +28,24 @@ OLD_PRESERIES_IV_SUMMARY_DIR = os.environ['OLD_PRESERIES_IV_SUMMARY_DIR']
 PRESERIES_CV_SUMMARY_DIR = os.environ['PRESERIES_CV_SUMMARY_DIR']
 OLD_PRESERIES_CV_SUMMARY_DIR = os.environ['OLD_PRESERIES_CV_SUMMARY_DIR']
 
-if PRESERIES:
-    IV_SUMMARY_FULL_DIRS=[]
-    for dir in os.listdir(PRESERIES_IV_SUMMARY_DIR):
-        IV_SUMMARY_FULL_DIRS.append(os.path.join(PRESERIES_IV_SUMMARY_DIR, dir))
-    for dir in os.listdir(OLD_PRESERIES_IV_SUMMARY_DIR):
-        IV_SUMMARY_FULL_DIRS.append(os.path.join(OLD_PRESERIES_IV_SUMMARY_DIR, dir))       
+
+
+#raw data: /eos/user/h/hgsensor/HGCAL_test_results/Results/Preseries_June2022/HPK_8in_444ch_300048/
+#data from analysis frame work in pclcd15: /home/data/hgsensor_iv/ 
+#/home/data/hgsensor_iv/Hamamatsu_Preseries_June2022
+# if PRESERIES:
+#     IV_SUMMARY_FULL_DIRS=[]
+#     for dir in os.listdir(PRESERIES_IV_SUMMARY_DIR):
+#         IV_SUMMARY_FULL_DIRS.append(os.path.join(PRESERIES_IV_SUMMARY_DIR, dir))
+#     for dir in os.listdir(OLD_PRESERIES_IV_SUMMARY_DIR):
+#         IV_SUMMARY_FULL_DIRS.append(os.path.join(OLD_PRESERIES_IV_SUMMARY_DIR, dir))       
     
-    CV_SUMMARY_FULL_DIRS=[]
-    for dir in os.listdir(PRESERIES_CV_SUMMARY_DIR):
-        CV_SUMMARY_FULL_DIRS.append(os.path.join(PRESERIES_CV_SUMMARY_DIR, dir))
-    for dir in os.listdir(OLD_PRESERIES_CV_SUMMARY_DIR):
-        CV_SUMMARY_FULL_DIRS.append(os.path.join(OLD_PRESERIES_CV_SUMMARY_DIR, dir))  
-print('IV_SUMMARY_FULL_DIRS= ', IV_SUMMARY_FULL_DIRS)
+#     CV_SUMMARY_FULL_DIRS=[]
+#     for dir in os.listdir(PRESERIES_CV_SUMMARY_DIR):
+#         CV_SUMMARY_FULL_DIRS.append(os.path.join(PRESERIES_CV_SUMMARY_DIR, dir))
+#     for dir in os.listdir(OLD_PRESERIES_CV_SUMMARY_DIR):
+#         CV_SUMMARY_FULL_DIRS.append(os.path.join(OLD_PRESERIES_CV_SUMMARY_DIR, dir))  
+# print('IV_SUMMARY_FULL_DIRS= ', IV_SUMMARY_FULL_DIRS)
 
 def get_kind_of_part(scratchpad_ID, IV_or_CV):
     scratchpad_ID=scratchpad_ID.split('_')[0]
@@ -157,7 +162,8 @@ def make_xml_schema_HGC_CERN_SENSOR_IV(filename):
     if PRESERIES:
         serial_number = serial_number +'_0'
 
-    Kind_of_part = get_kind_of_part(serial_number, "IV")
+    # Kind_of_part = get_kind_of_part(serial_number, "IV")
+    Kind_of_part = '200 um Si Sensor LD Full' #???
 
     xml_table_file = FSUDB_OUTPUT_DIR + Run_Name + '_'+ XML_tablename + '_PRESERIES_TEST.xml'
 
