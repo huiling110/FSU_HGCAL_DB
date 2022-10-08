@@ -23,7 +23,8 @@ chmod -R 777 *
 
 # export INPUT_DIR="/home/input/"
 # export FSUDB_OUTPUT_DIR="CMS_HGCAL_DB/IV_CV_preseries_tested_at_FSU/"
-export FSUDB_OUTPUT_DIR="./CMS_HGCAL_DB/xmlOutput/"
+# export FSUDB_OUTPUT_DIR="./CMS_HGCAL_DB/xmlOutput/"
+export FSUDB_OUTPUT_DIR="./CERN_senserTesting/xmlDir/"
 
 
 export PRESERIES_IV_SUMMARY_DIR="/home/output/summaryhgsensor_iv/Preseries/"
