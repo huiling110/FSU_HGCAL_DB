@@ -4,25 +4,25 @@ chmod -R 777 *
 ###export PATH=./:$PATH
 ### it's already in PYTHONPATH from the lcd setup.sh
 ############ Source the lcd setup
-export ROOT_SOURCE="/software/ROOT_6_06_06/bin/thisroot.sh";
-export HEXPLOT_DIR="/software/hexplot/bin";
-export WORKFLOW_DIR="/home/workflow/lcd_hgcal_analysisworkflows-v0.6";
-export DB_DIR="$WORKFLOW_DIR/database/csv";
+# export ROOT_SOURCE="/software/ROOT_6_06_06/bin/thisroot.sh";
+# export HEXPLOT_DIR="/software/hexplot/bin";
+# export WORKFLOW_DIR="/home/workflow/lcd_hgcal_analysisworkflows-v0.6";
+# export DB_DIR="$WORKFLOW_DIR/database/csv";
 
-export PYTHONPATH=$WORKFLOW_DIR:$PYTHONPATH;
+# export PYTHONPATH=$WORKFLOW_DIR:$PYTHONPATH;
 
-export TMPFILES_DIR_IV="/home/output/hgsensor_iv"
-export SUMMARY_DIR_IV="/home/output/summaryhgsensor_iv"
-source $WORKFLOW_DIR/workflow_IV/setup.sh;
+# export TMPFILES_DIR_IV="/home/output/hgsensor_iv"
+# export SUMMARY_DIR_IV="/home/output/summaryhgsensor_iv"
+# source $WORKFLOW_DIR/workflow_IV/setup.sh;
 
-export TMPFILES_DIR_CV="/home/output/hgsensor_cv"
-export SUMMARY_DIR_CV="/home/output/summaryhgsensor_cv" 
-source $WORKFLOW_DIR/workflow_CV/setup.sh;
+# export TMPFILES_DIR_CV="/home/output/hgsensor_cv"
+# export SUMMARY_DIR_CV="/home/output/summaryhgsensor_cv" 
+# source $WORKFLOW_DIR/workflow_CV/setup.sh;
 
-######Add input directory
+# ######Add input directory
 
-export INPUT_DIR="/home/input/"
-export FSUDB_OUTPUT_DIR="CMS_HGCAL_DB/IV_CV_preseries_tested_at_FSU/"
+# export INPUT_DIR="/home/input/"
+export FSUDB_OUTPUT_DIR="/afs/cern.ch/work/h/hhua/HGCal_sensorTest/dataBase/FSU_HGCAL_DB/CERN_senserTesting/xmlDir/"
 
 export PRESERIES_IV_SUMMARY_DIR="/home/output/summaryhgsensor_iv/Preseries/"
 export OLD_PRESERIES_IV_SUMMARY_DIR="/home/output/summaryhgsensor_iv/OLD_preseries/"
