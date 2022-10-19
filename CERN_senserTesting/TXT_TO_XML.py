@@ -1,8 +1,9 @@
-import csv; import re
 import argparse
-import get_iv_cv_dicts as dicts
+import csv
 import os
+import re
 
+import get_iv_cv_dicts as dicts
 
 parser=argparse.ArgumentParser(description='Covert test results to xml schemas')
 parser.add_argument('--f', type=str, help='the .txt filname', required=False)
@@ -163,7 +164,9 @@ def make_xml_schema_HGC_CERN_SENSOR_IV(filename):
 
     Name = 'HGC Sensor Manufacturer IV Test'
     Sensor_Type = IVDICT['Sensor_type']
-    Run_Name = IVDICT['Identifier'].split('_')[0]
+    # Run_Name = IVDICT['Identifier'].split('_')[0]
+    Run_Name = IVDICT['Identifier'] 
+    #not sure what this Run_time means? run time seems to be the id you get from Idenfifier in txt. At cern no sensor ID is used when measuring
     location=args.location
     Kind_of_part = '200um Si Sensor SD Full'
 
@@ -172,7 +175,7 @@ def make_xml_schema_HGC_CERN_SENSOR_IV(filename):
         serial_number = serial_number +'_0'
 
     # Kind_of_part = get_kind_of_part(serial_number, "IV")
-
+    print(Run_Name)
     xml_table_file = FSUDB_OUTPUT_DIR + Run_Name + '_'+ XML_tablename + '_PRESERIES_TEST.xml'
 
     with open(xml_table_file, 'w+') as xmlf:
@@ -224,6 +227,8 @@ def make_xml_schema_HGC_CERN_SENSOR_IV(filename):
         
         xmlf.write('\t\t</DATA_SET>\n')
         xmlf.write('</ROOT>\n')
+        
+        print( 'xml file writen here: ', xml_table_file)
 
 
                     

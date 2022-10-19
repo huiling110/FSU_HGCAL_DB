@@ -1,5 +1,6 @@
-import csv; import re
 import argparse
+import csv
+import re
 
 PRESERIES=True
 
@@ -68,7 +69,9 @@ def get_iv_dict(file):
                 Timestamp=line.split('\t')[2]
             if 'Identifier' in line:
                 Run_name = line.split('\t')[2]
-                Scratchpad_ID = Run_name.split('_')[0]
+                # Scratchpad_ID = Run_name.split('_')[0]
+                Run_name = Run_name.strip()
+                Scratchpad_ID = Run_name[:]
                 
 
             if 'Comments' in line:
