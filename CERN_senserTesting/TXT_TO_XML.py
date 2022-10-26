@@ -157,7 +157,7 @@ def convert_timestamp(orig_format):
 
 ##################### #####################  IV TABLES #####################  ##################### 
 
-def make_xml_schema_HGC_CERN_SENSOR_IV(filename):
+def make_xml_schema_HGC_CERN_SENSOR_IV(filename, location, user):
     
     IVDICT = dicts.get_iv_dict(filename)
     XML_tablename = 'HGC_CERN_SENSOR_IV'
@@ -167,7 +167,7 @@ def make_xml_schema_HGC_CERN_SENSOR_IV(filename):
     # Run_Name = IVDICT['Identifier'].split('_')[0]
     Run_Name = IVDICT['Identifier'] 
     #not sure what this Run_time means? run time seems to be the id you get from Idenfifier in txt. At cern no sensor ID is used when measuring
-    location=args.location
+    # location=args.location
     Kind_of_part = '200um Si Sensor SD Full'
 
     serial_number =IVDICT['Scratchpad_ID'] #+Run_Name#REMEMBER, SERIAL NUMBER IS SCRATCHPAD ID
@@ -190,7 +190,7 @@ def make_xml_schema_HGC_CERN_SENSOR_IV(filename):
         xmlf.write('\t\t\t<RUN_NAME>' + Run_Name + '</RUN_NAME>\n')
         xmlf.write('\t\t\t<RUN_BEGIN_TIMESTAMP>'+convert_timestamp(IVDICT['Timestamp'].replace("\n", "").rstrip())+'</RUN_BEGIN_TIMESTAMP>\n')
         xmlf.write('\t\t\t<RUN_END_TIMESTAMP>'+convert_timestamp(IVDICT['Timestamp'].replace("\n", "").rstrip())+'</RUN_END_TIMESTAMP>\n')
-        xmlf.write('\t\t\t<INITIATED_BY_USER>'+args.user.rstrip()+'</INITIATED_BY_USER>\n')
+        xmlf.write('\t\t\t<INITIATED_BY_USER>'+user+'</INITIATED_BY_USER>\n')
         xmlf.write('\t\t\t<LOCATION>'+location.rstrip()+'</LOCATION>\n')
         if args.comment:
             xmlf.write('\t\t\t<COMMENT_DESCRIPTION>'+args.comment.replace("\n", "").rstrip()+ '</COMMENT_DESCRIPTION>\n')
