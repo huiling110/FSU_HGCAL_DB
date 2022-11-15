@@ -168,7 +168,9 @@ def make_xml_schema_HGC_CERN_SENSOR_IV(filename, location, user):
     Run_Name = IVDICT['Identifier'] 
     #not sure what this Run_time means? run time seems to be the id you get from Idenfifier in txt. At cern no sensor ID is used when measuring
     # location=args.location
-    Kind_of_part = '200um Si Sensor SD Full'
+    # Kind_of_part = '200um Si Sensor SD Full'
+    # Kind_of_part = '120um Si Sensor SD Full'
+    Kind_of_part = '120um HD Si Sensor Wafer Full'
 
     serial_number =IVDICT['Scratchpad_ID'] #+Run_Name#REMEMBER, SERIAL NUMBER IS SCRATCHPAD ID
     if PRESERIES:

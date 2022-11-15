@@ -4,7 +4,6 @@ import TXT_TO_XML
 
 
 def main():
-    # i assume the FSU uses raw data which is in cern box
     # raw data: /eos/user/h/hgsensor/HGCAL_test_results/Results/Preseries_June2022/HPK_8in_444ch_300048/
     # data from analysis frame work in pclcd15: /home/data/hgsensor_iv/
     # /home/data/hgsensor_iv/Hamamatsu_Preseries_June2022
@@ -18,6 +17,7 @@ def main():
     user = 'Huiling'
     location = 'CERN'
     TXT_TO_XML.make_xml_schema_HGC_CERN_SENSOR_IV(inputTxt, location, user)
+    
 
 
 def uplodingToDB(xml):
